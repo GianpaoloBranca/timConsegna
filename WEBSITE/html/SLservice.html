@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="stylesheet.css" media="screen" title="no title" charset=“utf-8”>
+
+    <title id="Boss"></title>
+  </head>
+  <body class = "backgroundSL">
+    <div id="header">
+    </div>
+    <!-- aggiungere menu navigazione -->
+
+    <ol class="breadcrumb">
+      <li><a href="SmartLifePage.html">Smart Life</a></li>
+      <li id="category"></li>
+      <li id="se"></li>
+
+    </ol>
+
+	<table align="center" width="80%">
+    <tr>
+    <td align-left   id="prev"> </td>
+    <td id="pro"> </td> 
+    <td align-left   id="next"> </td>
+    </tr>
+    </table>
+
+    <h2 align="center" id="title" style="color: white">
+    </h2>
+    <p></p>
+    <div>
+      <table align="center" width="100%">
+        <tr>
+          <td align="center" id="1img" width="100%" />
+        </tr>
+      </table>
+    </div>
+    <p></p>
+
+    <div class="simpleBoxSL" id="general">
+
+    </div>
+    <div>
+      <table align="center" width="100%">
+        <tr>
+          <td align="center" id="2img" width="33%" />
+          <td align="center" id="3img" width="33%"/>
+          <td align="center" id="4img" width="33%"/>
+        </tr>
+      </table>
+    </div>
+    <p></p>
+     <div class="simpleBoxSL" id ="devices">
+        </div>
+
+      <p></p> 
+    <h4 align="center" style="color: white" >Activation Rules</h4>
+    <div class="simpleBoxSL" id="activation"/>
+
+    <script type="text/javascript">
+      var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+          sParameterName = sURLVariables[i].split('=');
+
+          if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+          }
+        }
+      };
+      var service = getUrlParameter('id');
+      var decoded;
+      
+      $.get('http://timwebs.altervista.org/SLServiceData.php?id=' + service, {
+      }).done(function(gotData) {
+        try{
+          console.log(gotData);
+          decoded = JSON.parse(gotData);
+          $("#title").append(decoded.name);
+          $("#Boss").append(decoded.name);
+          
+          var a = (parseInt(decoded.id)-1);
+          if (a <= 0){a="23";}
+         
+          else{a.toString();}
+		$("#prev").append("<a href='SLservice.html?id=" + a + "'><div width='20%' > <p align='left' style='color: white'> prev </p></div> </a>");
+       	 var a = (parseInt(decoded.id)+1);
+          if (a >= 23){a="1";}
+          else{a.toString();}
+       $("#next").append("<a href='SLservice.html?id=" + a + "'><div width='20%'  > <p align='right' style='color: white'> next </p></div> </a>");
+
+          $("#category").append("<a href='SLServicesByCat.html?type=" + decoded.type + "'>" 
+                                + decoded.type + "</a>");
+
+          $("#se").append(decoded.name);
+			$("#pro").append("<h2 style='color : red'>"+decoded.pro +"</h2>");
+		 $("#devices").append("<a href='SLforDevices.html?id="+ decoded.id +"&name="+ decoded.name + "'> <img width='60%' src='http://timwebs.altervista.org/data/img/SL-DeviceLink.png'/></a>");
+
+
+          $("#1img").append("<img width='75%' src='http://timwebs.altervista.org/data" + decoded.img1 + "'/>");
+          $("#general").append("<p class='textColorWhite'>" + decoded.general + "</p>");
+          for(var i = 2; i <5; i++) {
+            $("#" + i + "img").append("<img width='50%' src='http://timwebs.altervista.org/data" + $(decoded).attr("img" + i) + "'/>");
+          }
+          $("#activation").append("<p class='textColorWhite'>" + decoded.activation + "</p>");
+
+
+        }catch (Exception) {
+          console.log(Exception);
+          return;
+        };
+      }).fail();
+    </script>
+    <script>
+      $.get('http://timwebs.altervista.org/query-header.php', {
+      }).done(function(gotData) {
+        $("#header").append(gotData);
+      }).fail(function(e) {
+      });
+    </script>           
+  </body>
+</html>

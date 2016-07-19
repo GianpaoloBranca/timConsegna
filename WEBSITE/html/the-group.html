@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="stylesheet.css" media="screen" title="no title" charset=“utf-8”>
+    <title>The Group</title>
+  </head>
+<body>
+  <div id="header">
+  </div>
+  <div class="container-fluid">
+  <div class="row">
+    <div class="row-height">
+      <div class="col-md-2 col-sm-3 col-xs-3 col-height col-top" style="background-color:#2B60DE">
+      	  <br>
+          <a href="news.html" class="btn btn-primary btn-block" style="white-space: normal;">News</a>
+          <br>
+          <a href="Business_Market_Forinvestor.html" class="btn btn-primary btn-block" style="white-space: normal;">Business and Market</a>
+      </div>
+      <div class="col-md-10 col-sm-9 col-xs-9 col-height">
+        <div class="inside">
+          <p class="text-center h1">
+            <i>"Telecom Italy, a partnership <br>committed to building the future of Italy"</i>
+          </p>
+          <p class="text-center h4">
+            -Giuseppe Recchi, president <br><br>
+            <img src="http://timwebs.altervista.org/data/img/Pannellisolari.png" width="100%" />
+          </p>
+          <p class="large">
+            <br>
+            <b>Description: <br></b>
+            In the Manifesto of TIM and his new position the keys to understanding the vision
+            of the Telecom Italia group today <br>
+            <br>
+            <b>Communication is freedom. Freedom to communicate. <br></b>
+            In the twenty-first century only those whocan share ideas and experience are really free to pursue
+            their aspirations. And to think big. And only a group that think bigcan actually promote progress
+            and prosperity, ensuring the full freedom to communicate. Always. Everywhere. Better <br>
+            <br>
+            <b>Connected to life. Always. Everywhere. Better. <br></b>
+            We put the best landline and mobile networkso serve the needs of any person and any organization,
+            ensuring the best quality and safety in the experience of content, supported by a competentand experienced
+            services, accessible across all online and offline channels <br>
+            <br>
+            <b>Governance: <br></b>
+            <img src="http://timwebs.altervista.org/data/img/sistema-governance-maggio-2016-ita.jpg" alt="" width="100%"/>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <script>
+    $.get('http://timwebs.altervista.org/query-header.php', {
+    }).done(function(gotData) {
+      $("#header").append(gotData);
+    });
+  </script>
+</body>

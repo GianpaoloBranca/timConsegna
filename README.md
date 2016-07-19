@@ -14,4 +14,4 @@
 * **Template used:** none
 * **Repository for Phonegap:**
   https://github.com/GianpaoloBranca/tim
-  (file organisation is different for building the application)
+  (file organisation is different for the PhoneGap build)

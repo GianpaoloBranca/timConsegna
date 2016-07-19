@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="stylesheet.css" media="screen" title="no title" charset=“utf-8”>
+
+
+    <title> Who We Are - innovation</title>
+
+  </head>
+
+  <body class="whoWeAre">
+    <div id="header">
+    </div>
+
+    <table align-center width="100%">
+      <tr>
+      <td align-left width="15%">
+      <a href = "testimonials.html"> <p style="text-align : left;">TESTIMONIALS </p></a>
+      </td>
+      <td width="70%">
+        <h1 style="text-align : center;">
+          Who We Are 
+        </h1> 
+        </td>
+         <td align-right width="15%">
+      <a href = "Projects.html"><p style="text-align : right;">PROJECTS</p></a>
+      </td>
+      </tr>
+    </table>
+    <div class="innovation">
+
+      <p class="intro">
+        INNOVATION
+        <br>
+        To evolve meas to improve, to be able to respond to new challenges.
+        <br>
+        To accomodate the future and be a part of TIM is also renewd in the brand.
+        <br>
+        Since its inception,
+        more than 20 years ago, its logo was a sign of modernity and dynamism: a promise of projects and new horizons. Today continues to be a symbol of change, combining the expertise of two realities: the trigram and Telecom Italy, the intense blue of the TIM brand and a T to unite these two worlds.
+        <br>
+        The synthesis of a great legacy and a strong orientation to the future.
+        <br>
+
+        The result is simple and instant icon: evolved, evolved for times.
+      </p>
+    </div>
+
+    <h2 style="text-align : center;">
+      Our Values 
+    </h2>
+    <div class="infoBOX">
+      <table class="infoTABLE">
+        <tbody><tr>
+          <td class="tdInn"> <img class="imgInn" src="http://timwebs.altervista.org/data/img/WWA_in1.png"> </td> 
+          <td class="tdInn"> <p class="info">
+            WE ARE RESPONSIBLE LEADERS <br>
+            Being a leader means having a vision that goes beyond the horizons of knowledge. we believe in a culture of inclusion, considering the comparison an opportunity 
+            </p></td>
+          </tr>
+        </tbody></table>    
+    </div>
+    <br>
+    <div class="infoBOX">
+      <table class="infoTABLE">
+        <tbody><tr>
+          <td class="tdInn"> <img class="imgInn" src="http://timwebs.altervista.org/data/img/WWA_in2.png"> </td> 
+          <td class="tdInn"> <p class="info">
+            WE WISH TO GROW <br>
+            Always keep the passion alive, cause the desire to improve is one of our primary commitments: we remain open to the world and forward to the future.
+            </p></td>
+          </tr>
+        </tbody></table>    
+    </div>
+    <br>       
+    <div class="infoBOX">
+      <table class="infoTABLE">
+        <tbody><tr>
+          <td class="tdInn"> <img   class="imgInn" src="http://timwebs.altervista.org/data/img/WWA_in3.png"> </td> 
+          <td class="tdInn" > <p class="info">
+            AIMING FOR EXCELLENCE <br>
+            Commitment and dedication are essential elements to develop the highest quility projects, made with a constant eye to innovation and to the needs of our customers
+            </p></td>
+          </tr>
+        </tbody></table>    
+    </div>
+    <br>   
+    <div class="infoBOX">
+      <table class="infoTABLE">
+        <tbody><tr>
+          <td class="tdInn" > <img class="imgInn" src="http://timwebs.altervista.org/data/img/WWA_in4.png"> </td> 
+          <td class="tdInn"> <p class="info">
+            MEETING THE CUSTOMER <br>
+            Wework for people to communicate, making their lives easier, richer in opportunities and relayionships. All this through a caring way, development and mutual enrichment that meets the needs, the aspirations and the dream of out customenrs.
+            </p></td>
+          </tr>
+        </tbody>
+      </table>    
+    </div>
+
+    <script>
+      $.get('http://timwebs.altervista.org/query-header.php', {
+      }).done(function(gotData) {
+        $("#header").append(gotData);
+      }).fail(function(e) {
+      });
+    </script>   
+
+  </body>
+</html>

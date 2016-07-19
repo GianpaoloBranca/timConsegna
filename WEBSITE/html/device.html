@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="stylesheet.css" media="screen" title="no title" charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="header">
+    </div>
+    <ol class="breadcrumb">
+      <li><a href="devices.html">Devices</a></li>
+      <li id="prev-page"></li>
+      <li class="active" id="bc-name"></li>
+    </ol>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-1">
+          <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-3 bordered col-top col-height" id="gallery">
+
+            </div>
+            <div class="col-md-9 col-sm-9 col-xs-9 bordered col-top col-height" id="photo">
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-9 col-xs-9">
+          <p class="h1" id="name">
+
+          </p>
+          <br>
+          <p>
+          <h3><b>Description:</b></h3>
+          <p class="large" id="description">
+
+          </p>
+          <a class="btn btn-primary" href="#" role="button" id="sl-btn">SL Services</a>
+          <a class="btn btn-primary" href="#" role="button" id="as-btn">Assistant</a>
+          <br>
+          <br>
+          <p class="large" id="price">
+            <a class="btn btn-danger" href="#" role="button" disabled="disabled">Buy now</a>    
+          </p>
+        </div>
+        <div class="col-md-1 col-md-offset-1 col-sm-3 col-xs-3 bordered" id="next">
+            <p class="h4 text-center">Next Device</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1 bordered" style="margin-top: 20px" >
+          <p class="h2 text-center">
+            Technical Characteristics
+          </p>
+          <p style="white-space: pre-wrap; font-size:1.25em;" id="all-data"></p>
+        </div>
+      </div>
+      <script type="text/javascript">
+        var getUrlParameter = function getUrlParameter(sParam) {
+          var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+              sURLVariables = sPageURL.split('&'),
+              sParameterName,
+              i;
+
+          for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+              return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+          }
+        };
+        var id = getUrlParameter('id');
+        var type = getUrlParameter('type');
+        var decoded;
+
+        $.get('http://timwebs.altervista.org/query-device.php?id=' + id, {
+        }).done(function(gotData) {
+          try{
+            console.log(gotData);
+            decoded = JSON.parse(gotData);
+            document.title = decoded.name;
+            $("#name").append(decoded.name);
+            $("#bc-name").append(decoded.name);
+            $("#photo").append("<img src='http://timwebs.altervista.org/data/img/d_" + decoded.name + "_0.jpg' width='100%' id='mainPhoto' />");
+            $("#description").append("Display: " + decoded.display
+                                     + "<br>Dimensions: " + decoded.dimensions
+                                     + "<br>Weight:" + decoded.weight
+                                     + "g<br>");
+            $("#prev-page").append("<a href='devices-by-category.html?type=" + decoded.type + "'>" 
+                                   + decoded.type + "</a>");
+            $("#all-data").append(decoded.other);
+            
+            if(decoded.discount == 0) {
+              $("#price").append(decoded.price + "€");
+            } else {
+              $("#price").append("<span style='color:red'><b>" 
+              					 + (decoded.price - decoded.discount)
+                                 + "€ </b></span><del>"
+                                 + decoded.price + "€</del>");
+            }
+
+			$("#sl-btn").attr("href", "device-sl.html?id=" + id);
+            $("#as-btn").attr("href", "device-assistance.html?id=" + id);
+
+			console.log('http://timwebs.altervista.org/query-images.php?url=' + decoded.name + "&i=" + decoded.images);
+            $.get('http://timwebs.altervista.org/query-images.php?url=' + decoded.name + "&i=" + decoded.images, {  
+            }).done(function(gotData) {
+              console.log(gotData);
+              $("#gallery").append(gotData); 
+            });
+
+            $.get('http://timwebs.altervista.org/query-device.php?id=' + decoded.next, {
+            }).done(function(gotData) {
+              try{
+                console.log(gotData);
+                decoded = JSON.parse(gotData);
+                $("#next").append("<a href='device.html?id=" + decoded.id + 
+                				"' ><img src='http://timwebs.altervista.org/data/img/d_" + decoded.name + "_0.jpg' width='100%' /></a>");
+              }catch (Exception) {
+                console.log(Exception);
+                return;
+              };
+            });
+          }catch (Exception) {
+            console.log(Exception);
+            return;
+          };
+        }).fail();
+
+        function changeMainPhoto(src) {
+          document.getElementById("mainPhoto").src = src;
+        }
+      </script>
+      <script>
+        $.get('http://timwebs.altervista.org/query-header.php', {
+        }).done(function(gotData) {
+          $("#header").append(gotData);
+        });
+      </script>
+    </div>
+  </body>
+</html>

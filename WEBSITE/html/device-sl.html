@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="stylesheet.css" media="screen" title="no title" charset="utf-8">
+    <title></title>
+</head>
+<body><!-- BEGIN AV_TOOLBAR -->
+<div id="av_toolbar_regdiv">
+<div class="av_site"><a target="_blank" href="http://it.altervista.org/crea-sito-gratis.php?utm_campaign=toolbar&amp;utm_source=link&amp;utm_medium=link" title="Siti, blog e web hosting gratis">Crea sito</a></div>
+</div>
+<script type="text/javascript">
+(function(d, s) {
+	var fjs = d.getElementsByTagName(s)[0], js = d.createElement(s);
+	js.src = "//tb.altervista.org/js/script.js?1";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script'));
+</script>
+<!-- END AV_TOOLBAR -->
+
+  <div id="header">
+  </div>
+  <ol class="breadcrumb">
+    <li><a href="devices.html">Devices</a></li>
+    <li id="category"></li>
+    <li id="device"></li>
+    <li class="active">Smart Life Services</li>
+  </ol>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1" id="device-image">
+      </div>
+      <div class="col-md-8 col-sm-8">
+        <h1>Available SL Services</h1>
+        <br>
+        <ul id="service-list" class="large">
+        </ul>     
+      </div>
+    </div>
+  </div>
+<script>
+  var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+      sParameterName = sURLVariables[i].split('=');
+
+      if (sParameterName[0] === sParam) {
+        return sParameterName[1] === undefined ? true : sParameterName[1];
+      }
+    }
+  };
+  
+  var id = getUrlParameter('id');
+  
+  $.get('http://timwebs.altervista.org/query-device.php?id=' + id, {
+  }).done(function(gotData) {
+    try{
+      decoded = JSON.parse(gotData);
+      document.title = decoded.name;
+      $("#category").append("<a href='devices-by-category.html?type=" 
+      				+ decoded.type + "'>" 
+                    + decoded.type + "</a>");
+      $("#device").append("<a href='device.html?id="
+      				+ decoded.id + "'>"
+                    + decoded.name + "</a>");
+      $("#device-image").append("<img src='http://timwebs.altervista.org/data/img/d_" + decoded.name + "_0.jpg' width='100%' />");
+    }catch (Exception) {
+      console.log(Exception);
+      return;
+    };
+  });
+  
+  $.get('http://timwebs.altervista.org/query-device-sl.php?id=' + id, {
+  }).done(function(gotData) {
+  	try {
+      decoded = JSON.parse(gotData); 
+      if(Object.keys(decoded).length == 0) {
+      	$("#service-list").append("<li>No Service available for this device!</li>");
+      }
+      
+      for(var i = 0; i < Object.keys(decoded).length; i++) {
+        $("#service-list").append("<a href='SLservice.html?id=" 
+       				+ decoded[i].id + "' ><li>" 
+                    + decoded[i].name + "</li></a>");
+      }    
+    } catch (Exception) {
+      console.log(Exception);
+    };
+  });
+
+</script>
+<script>
+  $.get('http://timwebs.altervista.org/query-header.php', {
+  }).done(function(gotData) {
+    $("#header").append(gotData);
+  });
+</script>
+</body>
+</html>
+

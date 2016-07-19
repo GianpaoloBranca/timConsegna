@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="stylesheet.css" media="screen" title="no title" charset=“utf-8”>
+  <title></title>
+</head>
+<body>
+<div id="header">
+    </div>
+
+    <ol class="breadcrumb">
+      <li><a href="SmartLifePage.html">Smart Life</a></li>
+      <li id="category"></li>
+      <li id="se"></li>
+	  <li id="sd"></li>
+    </ol>
+
+<div  class="DIV0" width="75%" id ="list">	
+</div>
+
+
+
+<div id ="paginaVuota">
+</div>
+
+<script>
+  var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+      sParameterName = sURLVariables[i].split('=');
+
+      if (sParameterName[0] === sParam) {
+        return sParameterName[1] === undefined ? true : sParameterName[1];
+      }
+    }
+  };
+  
+  var id = getUrlParameter('id');
+  var name = getUrlParameter('name');
+ 
+   $.get('http://timwebs.altervista.org/SLServiceData.php?id=' + id, {
+      }).done(function(gotData) {
+        try{
+          console.log(gotData);
+          decoded = JSON.parse(gotData);
+ 
+ 
+   $("#category").append("<a href='SLServicesByCat.html?type=" + decoded.type + "'>" 
+                                + decoded.type + "</a>");
+       	
+       $("#se").append("<a href='SLservice.html?id="+id+"'>" + name + "</a>");
+       
+        $("#sd").append("devices for the service");
+ 
+ }catch (Exception) {
+          console.log(Exception);
+          return;
+        };
+      }).fail();
+
+
+ 
+ 
+  
+  $.get('http://timwebs.altervista.org/SLforDeviceData.php?id=' + id,{
+  }).done(function(gotData) {
+    try{
+     console.log(gotData);
+      decoded = JSON.parse(gotData);
+      
+      
+      if (Object.keys(decoded).length == 0){
+      	$("#paginaVuota").append("<p> THERE ARE NO LINKS </p> <a href='SLservice.html?id="+id+"'> GO BACK</a>");
+      }
+       else{   
+      for (var i = 0; i < Object.keys(decoded).length; i++){
+          $("#list").append("<div><a href='device.html?id="+decoded[i].id + "'><table align-center ><tr><td>"+"<img width='50em' src='http://timwebs.altervista.org/data/img/d_"+decoded[i].name+"_0.jpg'/></td><td>" + decoded[i].name + "</td></tr></table></a></div>");
+      
+      
+      	
+      
+      
+      
+      
+      }
+      
+      }
+      
+    }catch (Exception) {
+      console.log(Exception);
+      return;
+    };
+  });
+  
+ 
+
+</script>
+ <script>
+      $.get('http://timwebs.altervista.org/query-header.php', {
+      }).done(function(gotData) {
+        $("#header").append(gotData);
+      }).fail(function(e) {
+      });
+    </script>           
+</body>
+</html>

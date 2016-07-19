@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="stylesheet.css" media="screen" title="no title" charset="utf-8">
+    <script src="device-query.js"></script>
+    <title>Devices</title>
+  </head>
+  <body>
+    <div id="header">
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8" style="margin-left: 15px">
+          <p class="very-large">We have everything you need!</p>
+          <p class="h3">Have a look to our special selection of discounted devices! ->
+            <a class="btn btn-default" href="devices-by-category.html?type=discount" role="button">Of Course!</a>
+          </p>
+          <h4>Or just click on one of the panel below to search something specific...</h4>
+        </div>
+        <div class="col-md-4 hidden-sm hidden-xs pull-right" style="margin-right: -15px">
+          <img src="http://timwebs.altervista.org/data/img/d_p_banner.jpg" height="100%" />
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-6 bordered">
+          <a href="devices-by-category.html?type=smartphone">
+            <img src="http://timwebs.altervista.org/data/img/d_p_smartphone.jpg" width="100%" />
+          </a>
+          <p class="text-center large">
+            Smartphones
+          </p>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 bordered">
+          <a href="devices-by-category.html?type=tablet">
+            <img src="http://timwebs.altervista.org/data/img/d_p_tablet.jpg" width="100%" />
+          </a>
+          <p class="text-center large">
+            Tablets
+          </p>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 bordered">
+          <a href="devices-by-category.html?type=modem">
+            <img src="http://timwebs.altervista.org/data/img/d_p_modem.jpg" width="100%" />
+          </a>
+          <p class="text-center large">
+            Modems
+          </p>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 bordered">
+          <a href="devices-by-category.html?type=landline">
+            <img src="http://timwebs.altervista.org/data/img/d_p_landline.jpg" width="100%" />
+          </a>
+          <p class="text-center large">
+            Landlines
+          </p>
+        </div>
+      </div>
+    </div>   
+    <script>
+      $.get('http://timwebs.altervista.org/query-header.php', {
+      }).done(function(gotData) {
+        $("#header").append(gotData);
+      }).fail(function(e) {
+      });
+    </script>
+  </body>
+</html>

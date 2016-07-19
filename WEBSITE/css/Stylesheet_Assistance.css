@@ -1,0 +1,154 @@
+#banner_image{
+  display:block;
+  width:auto;
+  height:auto;
+  max-height:100px;
+}
+
+#banner{
+  background-color:#0B3D86;
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:20px;
+}
+
+.btn-primary{
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+#sidebar_business{
+  background-color:#009999;
+  height:4400px;
+}
+
+.p_title{
+  color:#00ffff;
+  font-size:20px;
+}
+
+.p{
+  margin-top: 10px;
+  margin-bottom:10px;
+}
+
+#sidebar{
+  color:#006699;
+  background-color:#80ccff;
+  font-size:20px;
+  height:600px;
+}
+
+.btn-group{
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+#LM{
+  border:solid red 3px;
+  border-radius:100%;
+  text-align:center;
+  font-size:30px;
+  padding-top:140px;
+  padding-bottom:140px;
+}
+
+#CP{
+  border:solid green 3px;
+  border-radius:100%;
+  text-align:center;
+  font-size:20px;
+  padding-top:75px;
+  padding-bottom:75px;
+}
+
+#TS{
+  border:solid yellow 3px;
+  border-radius:100%;
+  text-align:center;
+  font-size:20px;
+  padding-top:60px;
+  padding-bottom:60px;
+}
+
+#SL{
+  border:solid #0000ff 3px;
+  border-radius:100%;
+  text-align:center;
+  font-size:30px;
+  padding-top:160px;
+  padding-bottom:160px;
+}
+
+.immagini_griglia{
+  max-height: 100px;
+}
+
+#casetta{
+  max-height: 400px;
+}
+
+#left_topic_link{
+  margin-left: 50px;
+  float:left;
+  margin-top: 10px;
+  display:inline;
+  border: solid black 1px;
+  padding: 5px;
+  font-size:20px;
+}
+
+#right_topic_link{
+  margin-right: 50px;
+  float:right;
+  margin-top: 10px;
+  display:inline;
+  border: solid black 1px;
+  padding: 5px;
+  font-size:20px;
+}
+
+#title{
+  margin: auto;
+  width:20%;
+  text-align: center;
+}
+
+#subtitle{
+  margin:auto;
+  width:45%;
+  border: solid black 1px;
+  height:60px;
+  text-align:center;
+}
+
+.project_img{
+  border-radius: 100%;
+}
+
+.image_box{
+  padding:50px;
+  display:inline-block;
+}
+
+#left_image{
+  float:left;
+}
+
+#right_image{
+  float:right;
+}
+
+
+#images{
+  text-align: center;
+}
+
+.projects_p{
+  max-width: 250px;
+}
+
+#sidebar_TA{
+  background-color: #6699ff;
+  height:650px;
+}

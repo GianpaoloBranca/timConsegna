@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="stylesheet.css" media="screen" title="no title" charset=“utf-8”>
+
+    <title>SmartLife Services</title>
+  </head>
+  <body class = "backgroundSL" id="body">
+    <div id="header">
+    </div>
+   
+
+
+    <h1> Make your life better, Make your life Smarter! </h1>
+
+
+    <p/>
+    <div class="DIV0">
+      <a href= "SLServicesByCat.html?type=tvEntertainment">
+        <table align="center" width='95%'>
+          <tr>
+            <td width='50%'> <img class ="groupMenu"  width='85%' src = "http://timwebs.altervista.org/data/img/SL-TvE1.png"/>  </td>
+            <td width='50%'>    
+              <p> TV &amp; Entertainment </p>
+              <p>TV series, Film, Music, Books, Games and Football!!
+                Discover what you like, and enjoy your time!</p>
+            </td>
+          </tr>
+        </table>
+      </a>
+    </div>
+    <!-- da aggiornare e metter link in php -->
+
+    <div class="DIV1">
+      <a href= "SLServicesByCat.html?type=healtFitness">
+        <table align="center" width='95%'>
+          <tr>
+            <td width='50%'>    <p> HealtAndFitness </p>
+              <p> Try the latest wearables.Find out How Health and Wellness can positively change your life.
+                Free your desire to move and share your results with friends!
+              </p>
+            </td>
+            <td width='50%'> <img class ="groupMenu"  width='85%' src = "http://timwebs.altervista.org/data/img/SL-HF1.png"/></td>
+
+          </tr>
+        </table>
+      </a>
+    </div>
+
+    <div class="DIV2">
+      <a href= "SLServicesByCat.html?type=homeFamily">
+        <table align="center" width='95%'>
+          <tr>
+            <td width='50%'> <img class ="groupMenu" width='85%' src = "http://timwebs.altervista.org/data/img/SL-Family1.png"/>  </td>
+            <td width='50%'>    <p> Home And Family </p>
+
+              <p> Smart Life also means a simpler and safer life.
+                Also for your home and and your loved ones</p>
+            </td>
+          </tr>
+        </table>
+      </a>
+    </div>
+
+    <div class="DIV3">
+      <a href= "SLServicesByCat.html?type=people">
+        <table  align="center" width='95%'>
+          <tr>
+            <td width='50%'>    <p>People </p>
+              <p> A new approach to the world of e-paymants and digital identity.
+                You can organize and easily manage and secure your digital payments, your personal libary, keep passwords, invoices, receipts and medical reports
+              </p></td>
+            <td width='50%'> <img class ="groupMenu" width='85%' src = "http://timwebs.altervista.org/data/img/SL-P1.png"/>  </td>
+
+          </tr>
+        </table>
+      </a>
+    </div>
+
+    <!-- da aggiunger il link -->
+    <div class="DIV4">
+      <a href= "SLServicesByCat.html?type=promotion">
+        <table align="center" width='95%'>
+          <tr>
+            <td width='50%'> <img class ="groupMenu" width='85%' src = "http://timwebs.altervista.org/data/img/SL-Pro1.png"/>  </td>
+            <td width='50%'>    <p>Promotions</p>
+              <p> Discover ALL the Smart Life Services in promotion!!</p></td>
+          </tr>
+        </table>
+      </a>
+    </div>
+
+
+    <div class="DIV5">
+      <a href= "SLServicesByCat.html?type=mobileOffers">
+        <table align="center" width='95%'>
+          <tr>
+            <td width='50%' >    <p> Mobile Offers</p> <p> Find the best offer for you!</p></td>
+            <td width='50%'> <img class ="groupMenu" width='85%' src = "http://timwebs.altervista.org/data/img/SL-MO1.png"/>  </td>
+
+          </tr>
+        </table>
+      </a>
+    </div>
+    <p/>
+  </body>  
+
+  <script>
+    $.get('http://timwebs.altervista.org/query-header.php', {
+    }).done(function(gotData) {
+      $("#header").append(gotData);
+    }).fail(function(e) {
+    });
+  </script>
+</html>
+

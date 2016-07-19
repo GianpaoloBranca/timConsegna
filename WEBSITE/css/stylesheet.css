@@ -1,0 +1,226 @@
+.crop-square {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+}
+
+.large {
+  font-size: 1.6em;
+}
+
+.very-large {
+  font-size: 4em;
+}
+
+.indent {
+  margin-left: 40px;
+}
+
+.bordered {
+  border: 2px solid black;
+}
+
+.inside {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.row-height {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.col-height {
+  display: table-cell;
+  float: none;
+  height: 100%;
+}
+
+.col-top {
+  vertical-align: top;
+}
+.col-middle {
+  vertical-align: middle;
+}
+.col-bottom {
+  vertical-align: bottom;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0px;
+}
+
+#banner_image{
+  display:block;
+  width:auto;
+  height:auto;
+  max-height:100px;
+}
+
+#banner{
+  background-color:#0B3D86;
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:20px;
+}
+
+
+
+body.backgroundSL{
+    /*background-color: #1E90FF;*/
+    background-image: linear-gradient(to top , #00008B 0%, #1E90FF 100%);
+    /*background-image: radial-gradient(to center, circle farthest-corner, #FFFFFF 0%, #00A3EF 100%);*/
+
+}
+
+div.DIV0{
+    background-color: white;
+    position: relative;
+    top: 10px;
+    border-color: black;
+    border-radius: 0.7em;
+}
+
+div.DIV1{
+    background-color: #FFA500;
+    position: relative;
+     top: 20px;
+     border-color: black;
+    border-radius: 0.7em;
+    
+}
+
+
+div.DIV2{
+    background-color: #00FA9A;
+     position: relative;
+    top: 30px;
+    border-color: black;
+    border-radius: 0.7em;
+   
+}
+
+div.DIV3{
+    background-color: #FFD700;
+     position: relative;
+     top: 40px;
+     border-color: black;
+    border-radius: 0.7em;
+}
+
+div.DIV4{
+    background-color:#FF1493;
+     position: relative;
+     top: 50px;
+     border-color: black;
+    border-radius: 0.7em;
+}
+
+div.DIV5{
+    background-color:#9370DB;
+     position: relative;
+    top: 60px;
+    border-color: black;
+    border-radius: 0.7em;
+}
+img.groupMenuSL{
+    border-radius: 0.7em;
+    width: 95%; 
+}
+
+img.groupMenu{
+    border-radius: 0.7em;
+    width: 95%; 
+}
+
+
+div.simpleBoxSL{
+ border-color: white;
+ text-align: center;
+
+ 
+}
+p.textColorWhite{
+	color : white;
+}
+
+body.whoWeAre{
+    background-color: white;
+}
+
+
+div.innovation{
+    background-color: white;
+    border-color: black;
+    border-style: solid;
+    
+}
+
+
+div.infoBOX{
+    background-color: white;
+    border-color: black;
+    border-style: solid;
+    border-radius: 0.1%;
+    /*max-width: 70%;*/
+    margin-left: 5%;
+    margin-right: 5%;
+  
+}
+div.infoBOXSimple{
+    
+    border-color: black;
+    border-style: solid;
+    border-radius: 0.1%;
+    /*max-width: 70%;*/
+    margin-left: 5%;
+    margin-right: 5%;
+  
+}
+
+div.divHome{
+ border-color: black;
+    border-style: solid;
+    border-radius: 0.1%;
+    position:relative;
+bottom:0px;
+}
+
+
+table.infoTABLE{
+    text-align: center;
+    border-color: black;
+    align-self: center;
+}
+
+
+p.intro{
+    text-align: center;
+    color: black;
+    font-family: serif;
+    
+}
+
+
+p.info{
+    text-align: center;
+    color: black;
+    font-family: serif;
+    
+    border-color: black;
+    border-style: solid;
+}
+
+
+img.imgInn{
+    border-radius: 0.1%;
+    height: 60%;
+    width: 75%;
+}
+
+td.tdInn{
+    text-align: center;
+    width: 40%;
+    border-color: black;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="stylesheet.css" media="screen" title="no title" charset=“utf-8”>
+    <title>Who We Are</title>
+  </head>
+  <body>
+    <div id="header">
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p class="h2 text-center">
+            <a class="btn btn-info pull-left" href="innovation.html" role="button">Innovation</a>
+            Who we are
+            <a class="btn btn-info pull-right" href="testimonials.html" role="button">Testimonials</a>
+            <br>
+            <br>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 text-center" style="margin-bottom: 15px">
+          <img class="img-circle" src="http://timwebs.altervista.org/data/img/Operaio.jpg" width="70%" />
+          <br>
+          <br>
+          <div class="bordered">
+            <p class="h4 text-center">
+              Innovation
+            </p>
+            Innovation, the driving force of the future, we devote effort and resources.
+
+          </div>
+        </div>
+        <div class="col-md-4 text-center" style="margin-bottom: 15px">
+          <img class="img-circle" src="http://timwebs.altervista.org/data/img/Bambini.jpg" width="70%">
+          <br>
+          <br>
+          <div class="bordered">
+            <p class="h4 text-center">
+              Environment and Social
+            </p>
+            We strive every day to the needs of the communities with innovative solutions and higly technological.
+
+          </div>
+        </div>
+        <div class="col-md-4 text-center" style="margin-bottom: 15px">
+          <img class="img-circle" src="http://timwebs.altervista.org/data/img/Conferenza.jpg" width="70%">
+          <br>
+          <br>
+          <div class="bordered">
+            <p class="h4 text-center">
+              Culture
+            </p>
+            New technologies contribute to the dissemination of culture in the country and the emergence of new professions
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $.get('http://timwebs.altervista.org/query-header.php', {
+      }).done(function(gotData) {
+        $("#header").append(gotData);
+      }).fail(function(e) {
+      });
+    </script>
+  </body>
+</html>
+
