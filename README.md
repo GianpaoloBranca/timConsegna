@@ -3,10 +3,8 @@
 ### Group Members and work division
 * **Gianpaolo Branca** - 806826
   Devices branch
-  
 * **Giovanni Pelosi** - 809823
   Smart Life services branch
-
 * **Davide Suppa** - 775197
   Assistance services branch
 
